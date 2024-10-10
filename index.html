@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="login-box">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <div class="user-box">
+                <input type="text" name="username" id="username" required>
+                <label>Username</label>
+            </div>
+            <div class="user-box">
+                <input type="password" name="password" id="password" required>
+                <label>Password</label>
+            </div>
+            <!-- Ganti <a> dengan <button> -->
+            <button type="submit" id="submitBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Submit
+            </button>
+            <p id="error-message" style="color: red; display: none;"></p>
+        </form>
+    </div>
+
+    <script>
+        // Ganti klik pada <a> dengan submit form
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault();  // Mencegah form untuk submit
+
+            // Ambil nilai dari input
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var errorMessage = document.getElementById("error-message");
+
+            // Validasi sederhana
+            if (username === "" || password === "") {
+                errorMessage.style.display = "block";
+                errorMessage.textContent = "Username dan password harus diisi!";
+            } else {
+                errorMessage.style.display = "none";
+                alert("Login sukses!"); // Gantikan dengan aksi login yang sebenarnya
+            }
+        });
+    </script>
+</body>
+</html>
